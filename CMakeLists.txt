@@ -5,7 +5,6 @@ add_library(madronalib::madronalib ALIAS madronalib)
 target_sources(madronalib PUBLIC
 	FILE_SET HEADERS
 	BASE_DIRS
-		${CMAKE_CURRENT_SOURCE_DIR}/external
 		${CMAKE_CURRENT_SOURCE_DIR}
 	FILES
 		${CMAKE_CURRENT_SOURCE_DIR}/external/sse2neon.h
@@ -27,9 +26,12 @@ target_sources(madronalib PUBLIC
 		${CMAKE_CURRENT_SOURCE_DIR}/DSP/MLDSPUtils.h
 )
 target_include_directories(madronalib INTERFACE
-	$<INSTALL_INTERFACE:include/madronalib>
+	$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
+	$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/external>
+    $<INSTALL_INTERFACE:include/madronalib>
 	$<INSTALL_INTERFACE:include/madronalib/app>
 	$<INSTALL_INTERFACE:include/madronalib/DSP>
+	$<INSTALL_INTERFACE:include/madronalib/external>
 )
 install(
 	TARGETS madronalib
