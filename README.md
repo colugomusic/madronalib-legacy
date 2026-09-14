@@ -1,0 +1,1 @@
+This is an old copy of [madronalib](https://github.com/madrona-labs/madronalib) that I'm keeping around because updating all my projects to the latest version after all of randy's refactoring was too difficult.
